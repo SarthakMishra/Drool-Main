@@ -1,0 +1,544 @@
+/* Hero CTA*/
+#hero-cta,
+#hero-cta-main {
+  --gradientBackground: linear-gradient(
+    90deg,
+    rgba(115, 82, 255, 1) 0%,
+    rgba(255, 99, 99, 1) 12.5%,
+    rgba(248, 180, 0, 1) 25%,
+    rgba(14, 183, 112, 1) 37.5%,
+    rgba(115, 82, 255, 1) 50%,
+    rgba(255, 99, 99, 1) 62.5%,
+    rgba(248, 180, 0, 1) 75%,
+    rgba(14, 183, 112, 1) 87.5%,
+    rgba(115, 82, 255, 1) 100%
+  );
+  --gradientBackgroundSize: 250%;
+  --gradientBorder: 3px;
+  --borderOpacity: 1;
+  --gradientShadowInset: -2px;
+  --gradientShadowTransformY: 6px;
+  --gradientShadowBlur: 10px;
+  --gradientShadowOpacity: 0.3;
+  --hoverTransformY: -5px;
+  --hoverInset: -6px;
+  --hoverOpacity: 0.5;
+  --hoverBlur: 12px;
+  --hoverTop: 18px;
+  --hoverBottom: 22px;
+  --hoverBackground: radial-gradient(
+    circle at 50% 50%,
+    #333332,
+    #000
+  ) !important;
+}
+.gradient-border {
+  --bgStateX: 0%;
+  --transitionSpeed: 0.2s;
+  background-clip: padding-box;
+  border: solid var(--gradientBorder) transparent;
+  transform-style: preserve-3d;
+  transition: all 0.2s ease-out;
+}
+.gradient-border::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transform: translate3d(0px, 0px, -1px);
+  margin: calc(var(--gradientBorder) * -1);
+  border-radius: inherit;
+  background: var(--gradientBackground);
+  background-size: var(--gradientBackgroundSize);
+  transition: all var(--transitionSpeed) ease-out;
+  background-position: var(--bgStateX) 0;
+  opacity: var(--borderOpacity);
+}
+
+.gradient-shadow {
+  position: relative;
+  transform-style: preserve-3d;
+}
+.gradient-shadow::after {
+  content: "";
+  position: absolute;
+  inset: var(--gradientShadowInset);
+  transform: translate3d(
+    0px,
+    var(--gradientShadowTransformY),
+    -5px
+  ); /* (X, Y, Z) */
+  opacity: var(--gradientShadowOpacity);
+  border-radius: inherit;
+  background: var(--gradientBackground);
+  background-size: var(--gradientBackgroundSize);
+  background-position: var(--bgStateX) 0;
+  transition: all var(--transitionSpeed) ease-out;
+  filter: blur(var(--gradientShadowBlur));
+}
+
+.button-glow {
+  transform: perspective(15000px) translateY(var(--hoverTransformY))
+    rotateX(10deg);
+  background-image: var(--hoverBackground);
+  box-shadow: rgb(4, 4, 4) 0px 8px 5px 0px inset;
+  text-shadow: rgba(255, 255, 255, 0.3) 0px 1px, 0px 6px 5px #000000;
+  padding-top: var(--hoverTop);
+  padding-bottom: var(--hoverBottom);
+}
+.button-glow::after {
+  opacity: var(--hoverOpacity);
+  inset: var(--hoverInset);
+  filter: blur(var(--hoverBlur));
+}
+
+/*Navigation*/
+.navigation {
+  --r: 15px;
+  --navGradientOpacity: 0.5;
+
+  border-radius: var(--r);
+  transform: translate(0);
+  transform-style: preserve-3d;
+}
+.navigation sh {
+  position: absolute;
+  inset: -150px;
+  border: 150px solid #0000;
+  border-radius: calc(150px + var(--r));
+  transform: translateZ(-1px);
+  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
+.navigation sh:before {
+  content: "";
+  position: absolute;
+  inset: 20px;
+  transform: translate(0px, 10px);
+  opacity: var(--navGradientOpacity);
+  background: linear-gradient(
+    90deg,
+    rgba(115, 82, 255, 1) 0%,
+    rgba(255, 99, 99, 1) 33%,
+    rgba(248, 180, 0, 1) 66%,
+    rgba(14, 183, 112, 1) 100%
+  );
+  filter: blur(25px);
+  border-radius: var(--r);
+}
+
+/* Nav Button Styling */
+#gradient-button-nav {
+  --gradientBackground: linear-gradient(
+    90deg,
+    rgba(115, 82, 255, 1) 0%,
+    rgba(255, 99, 99, 1) 12.5%,
+    rgba(248, 180, 0, 1) 25%,
+    rgba(14, 183, 112, 1) 37.5%,
+    rgba(115, 82, 255, 1) 50%,
+    rgba(255, 99, 99, 1) 62.5%,
+    rgba(248, 180, 0, 1) 75%,
+    rgba(14, 183, 112, 1) 87.5%,
+    rgba(115, 82, 255, 1) 100%
+  );
+  --gradientBackgroundSize: 250%;
+  --gradientBorder: 1px;
+  --borderOpacity: 1;
+  --gradientShadowInset: -4px;
+  --gradientShadowTransformY: 2px;
+  --gradientShadowBlur: 8px;
+  --gradientShadowOpacity: 0.2;
+  --hoverTransformY: -3px;
+  --hoverInset: -5px;
+  --hoverOpacity: 0.3;
+  --hoverBlur: 10px;
+  --hoverTop: 9px;
+  --hoverBottom: 11px;
+  --hoverBackground: radial-gradient(
+    circle at 50% 50%,
+    #212020,
+    #000
+  ) !important;
+}
+
+/* Video Box Styling*/
+.gradient-border-video {
+  background-clip: padding-box;
+  border: solid 3px transparent;
+  transform-style: preserve-3d;
+}
+.gradient-border-video::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  transform: translate3d(0px, 0px, -1px);
+  margin: -3px;
+  border-radius: 42px;
+  background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 1) 23%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    linear-gradient(
+      90deg,
+      rgba(115, 82, 255, 1) 0%,
+      rgba(255, 99, 99, 1) 33%,
+      rgba(248, 180, 0, 1) 66%,
+      rgba(14, 183, 112, 1) 100%
+    );
+  mask-image: linear-gradient(0deg, black, rgba(0, 0, 0, 0.1) 45%);
+  -webkit-mask-image: linear-gradient(0deg, black, rgba(0, 0, 0, 0.1) 45%);
+}
+
+.gradient-shadow-video {
+  position: relative;
+  transform-style: preserve-3d;
+}
+.gradient-shadow-video::after {
+  content: "";
+  position: absolute;
+  inset: 40px;
+  transform: translate3d(0px, 50px, -5px);
+  opacity: 0.7;
+  border-radius: inherit;
+  background: linear-gradient(
+      180deg,
+      rgba(0, 0, 0, 1) 23%,
+      rgba(255, 255, 255, 0) 100%
+    ),
+    linear-gradient(
+      90deg,
+      rgba(115, 82, 255, 1) 0%,
+      rgba(255, 99, 99, 1) 33%,
+      rgba(248, 180, 0, 1) 66%,
+      rgba(14, 183, 112, 1) 100%
+    );
+  filter: blur(45px);
+}
+.div-block-5 {
+  --shadowOnHover: inset 0 5px 60px 0px rgba(0, 0, 0, 0.6);
+}
+.div-block-5:hover {
+  --shadowOnHover: inset 0px 3px 15px 0px rgba(0, 0, 0, 0.3);
+}
+
+.div-block-6 {
+  transition: all 0.2s ease-out;
+  pointer-events: none;
+  box-shadow: var(--shadowOnHover);
+}
+.videoDarkOverlay {
+  background-color: rgba(0, 0, 0, 0.3);
+}
+.hero-video-button {
+  transition: all 0.2s ease-out;
+  opacity: 1;
+}
+.hero-video-button-hide {
+  opacity: 0;
+}
+.lottie-animation-3 {
+  transition: all 0.2s ease-out;
+  cursor: pointer;
+}
+.lottie-animation-3:hover {
+  width: 220px;
+}
+
+/*video player styling*/
+#hero-video {
+  --plyr-color-main: #7352ff;
+  --plyr-control-spacing: 20px;
+  --plyr-control-radius: 100px;
+  cursor: inherit;
+}
+.plyr__progress input[type="range"],
+.plyr__volume input[type="range"] {
+  cursor: pointer;
+}
+
+/*Text Gradient*/
+
+.div-block-7 {
+  pointer-events: none;
+}
+
+.violet-gradient-border {
+  -webkit-mask-image: radial-gradient(
+    farthest-side at top,
+    white,
+    rgba(255, 255, 255, 0.1)
+  );
+  pointer-events: none;
+}
+
+/*testimonial Section */
+
+.testimonial-card {
+  --gradientBackground: linear-gradient(
+    90deg,
+    rgba(115, 82, 255, 1) 0%,
+    rgba(255, 99, 99, 1) 33.3%,
+    rgba(248, 180, 0, 1) 66.6%,
+    rgba(14, 183, 112, 1) 100%
+  );
+  --gradientBackgroundSize: 100%;
+  --gradientBorder: 0px;
+  --borderOpacity: 1;
+  --gradientShadowInset: 2px;
+  --gradientShadowTransformY: 0px;
+  --gradientShadowBlur: 0px;
+  --gradientShadowOpacity: 0;
+  user-select: none;
+}
+
+.gradient-underline-div {
+  user-select: none;
+}
+
+/*Showcase Section*/
+
+.showcase-ticker-wrapper-2 {
+  transform: scaleX(-1);
+}
+.showcase-ticker-wrapper-2 .showcase-image {
+  transform: scaleX(-1);
+}
+
+/* .showcase-image {
+  --gradientBackground: linear-gradient(
+    90deg,
+    rgba(115, 82, 255, 1) 0%,
+    rgba(255, 99, 99, 1) 33.3%,
+    rgba(248, 180, 0, 1) 66.6%,
+    rgba(14, 183, 112, 1) 100%
+  );
+  --gradientBackgroundSize: 100%;
+  --gradientShadowInset: 2px;
+  --gradientShadowTransformY: 15px;
+  --gradientShadowBlur: 15px;
+  --gradientShadowOpacity: 0.5;
+  --transitionSpeed: 0.5s;
+} */
+
+.feature-card {
+  --gradientBackground: linear-gradient(
+    90deg,
+    rgba(115, 82, 255, 1) 0%,
+    rgba(255, 99, 99, 1) 33.3%,
+    rgba(248, 180, 0, 1) 66.6%,
+    rgba(14, 183, 112, 1) 100%
+  );
+  --gradientBackgroundSize: 100%;
+  --gradientShadowInset: 15px;
+  --gradientShadowTransformY: 10px;
+  --gradientShadowBlur: 14px;
+  --gradientShadowOpacity: 0.5;
+  --transitionSpeed: 0.5s;
+}
+
+.this-section-end {
+  --gradientBackground: linear-gradient(
+    90deg,
+    rgba(115, 82, 255, 1) 0%,
+    rgba(255, 99, 99, 1) 33.3%,
+    rgba(248, 180, 0, 1) 66.6%,
+    rgba(14, 183, 112, 1) 100%
+  );
+  --gradientBackgroundSize: 100%;
+  --gradientShadowInset: 15px;
+  --gradientShadowTransformY: 35px;
+  --gradientShadowBlur: 40px;
+  --gradientShadowOpacity: 0.5;
+  --transitionSpeed: 0.5s;
+  --gradientBorder: 3px;
+  --borderOpacity: 0.6;
+}
+
+/*offerings*/
+.offerings-active-image {
+  pointer-events: none;
+}
+
+/* pricing */
+
+.remaining-seats-heading-wrapper {
+  --gradientBackground: linear-gradient(
+    90deg,
+    rgba(115, 82, 255, 1) 0%,
+    rgba(255, 99, 99, 1) 12.5%,
+    rgba(248, 180, 0, 1) 25%,
+    rgba(14, 183, 112, 1) 37.5%,
+    rgba(115, 82, 255, 1) 50%,
+    rgba(255, 99, 99, 1) 62.5%,
+    rgba(248, 180, 0, 1) 75%,
+    rgba(14, 183, 112, 1) 87.5%,
+    rgba(115, 82, 255, 1) 100%
+  );
+  --gradientBackgroundSize: 250%;
+  --gradientBorder: 1px;
+  --borderOpacity: 1;
+  --gradientShadowInset: -4px;
+  --gradientShadowTransformY: 2px;
+  --gradientShadowBlur: 8px;
+  --gradientShadowOpacity: 0.1;
+  --hoverTransformY: -2px;
+  --hoverInset: -5px;
+  --hoverOpacity: 0.2;
+  --hoverBlur: 10px;
+  --hoverTop: 5.5px;
+  --hoverBottom: 8.5px;
+  --hoverBackground: radial-gradient(
+    circle at 50% 50%,
+    #1d1b27,
+    #0d0c12
+  ) !important;
+}
+#seats-left-number {
+  color: #faf5e4;
+  font-weight: 500;
+}
+
+.pricing-card-highlighted {
+  --gradientBackground: linear-gradient(
+    90deg,
+    rgba(115, 82, 255, 1) 0%,
+    rgba(255, 99, 99, 1) 33.3%,
+    rgba(248, 180, 0, 1) 66.6%,
+    rgba(14, 183, 112, 1) 100%
+  );
+  --gradientBackgroundSize: 100%;
+  --gradientShadowInset: 5px;
+  --gradientShadowTransformY: 15px;
+  --gradientShadowBlur: 30px;
+  --gradientShadowOpacity: 0.4;
+  --transitionSpeed: 0.5s;
+  --gradientBorder: 1px;
+  --borderOpacity: 0.5;
+}
+
+/* Footer */
+
+.footer-bottom {
+  pointer-events: none;
+}
+
+/*------------For Laptop Scale 1600px and smaller --------------*/
+
+@media only screen and (max-width: 1600px) {
+  .navigation.gradient-shadow-2 {
+    width: 1200px;
+  }
+  .section.hero-section.wf-section {
+    padding-top: 10em;
+  }
+  /*hero cards*/
+  .div-block-4 {
+    transform: scale(0.9) translateY(-90px);
+  }
+
+  /*hero video*/
+  #hero-video {
+    width: 950px;
+    margin-top: -200px;
+  }
+
+  .div-block-10 {
+    margin-top: -450px;
+  }
+  .div-block-11,
+  .div-block-30,
+  .feature-wrapper,
+  .offerings-wrapper,
+  .div-block-51,
+  .div-block-54 {
+    width: 1150px;
+  }
+  .offerings-active-image {
+    width: 80%;
+    height: 60%;
+  }
+
+  .div-block-12.div-block-12-edits {
+    margin-top: 0;
+  }
+
+  .div-block-37,
+  .pricing-card-bottom,
+  .logo-ticker-overlay,
+  .violet-gradient-border.logo-ticker-inner,
+  .violet-edgeshadow-box.logo-ticker-component {
+    width: 1200px;
+  }
+}
+
+@media only screen and (max-height: 900px) {
+  .section-2.section-with-bg-img.dark-nav-trigger.wf-section {
+    margin-top: -600px;
+  }
+  .div-block-10 {
+    margin-top: -320px;
+  }
+}
+
+/*------------For Mobile & tablet Scale 991px and smaller --------------*/
+
+@media only screen and (max-width: 991px) {
+  .section-2.section-with-bg-img.dark-nav-trigger.wf-section {
+    margin-top: 0px;
+  }
+  .div-block-10 {
+    margin-top: 0px;
+  }
+
+  .div-block-11,
+  .div-block-30,
+  .feature-wrapper,
+  .offerings-wrapper,
+  .div-block-51,
+  .div-block-54 {
+    width: 80%;
+  }
+
+  .div-block-37,
+  .pricing-card-bottom {
+    width: 90%;
+  }
+
+  /*Logo Ticker*/
+  .logo-ticker-overlay,
+  .violet-gradient-border.logo-ticker-inner,
+  .violet-edgeshadow-box.logo-ticker-component {
+    width: 80%;
+  }
+  /*testimonial Section */
+
+  .testimonial-card {
+    --gradientBackground: linear-gradient(
+      90deg,
+      rgba(115, 82, 255, 1) 0%,
+      rgba(255, 99, 99, 1) 33.3%,
+      rgba(248, 180, 0, 1) 66.6%,
+      rgba(14, 183, 112, 1) 100%
+    );
+    --gradientBackgroundSize: 100%;
+    --gradientBorder: 1px;
+    --borderOpacity: 1;
+    --gradientShadowInset: 10px;
+    --gradientShadowTransformY: 15px;
+    --gradientShadowBlur: 30px;
+    --gradientShadowOpacity: 0.2;
+    user-select: none;
+  }
+
+  .gradient-underline-div {
+    min-width: 0px;
+  }
+}
