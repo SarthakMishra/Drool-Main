@@ -480,7 +480,7 @@
 }
 
 @media only screen and (max-height: 900px) {
-  .section-2.section-with-bg-img.dark-nav-trigger.wf-section {
+  .section-2.section-with-bg-img.dark-nav-trigger {
     margin-top: -600px;
   }
   .div-block-10 {
