@@ -825,11 +825,14 @@ function seatAvailability() {
 
   let checkoutBtnWeekly = $("#checkoutBtnWeekly");
   let checkoutBtnMonthly = $("#checkoutBtnMonthly");
+  let checkoutBtnPro = $("#checkoutBtnPro");
   let bookBtnWeekly = $("#bookBtnWeekly");
   let bookBtnMonthly = $("#bookBtnMonthly");
+  let bookBtnPro = $("#bookBtnPro");
 
   bookBtnWeekly.hide();
   bookBtnMonthly.hide();
+  bookBtnPro.hide();
 
   if (visibilityCheckElement) {
     hideText1.hide();
@@ -837,9 +840,11 @@ function seatAvailability() {
 
     bookBtnWeekly.show();
     bookBtnMonthly.show();
+    bookBtnPro.show();
 
     checkoutBtnWeekly.hide();
     checkoutBtnMonthly.hide();
+    checkoutBtnPro.hide();
   }
 }
 
