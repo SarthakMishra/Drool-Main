@@ -2,11 +2,11 @@
 
 let customEaseFast = CustomEase.create(
   "custom",
-  "M0,0,C0,0,0.451,0.047,0.702,0.298,0.951,0.547,1,1,1,1"
+  "M0,0,C0,0,0.451,0.047,0.702,0.298,0.951,0.547,1,1,1,1",
 );
 let customEaseSlow = CustomEase.create(
   "custom",
-  "M0,0 C0,0 0.602,0 0.8,0.2 0.998,0.401 1,1 1,1 "
+  "M0,0 C0,0 0.602,0 0.8,0.2 0.998,0.401 1,1 1,1 ",
 );
 
 let targetElement1 = $(".scroll-hero-card-1");
@@ -29,7 +29,7 @@ gradientButton.each(function (index) {
   GlowTl.to(currentElement, {
     "--bgStateX": "250%",
     duration: 8,
-    ease: "none"
+    ease: "none",
   });
 
   let buttonTimer;
@@ -66,7 +66,7 @@ gradientButton.each(function (index) {
     function () {
       currentElement.get(0).style.setProperty("--transitionSpeed", "0.2s");
       endAndStartButtonTimer("out");
-    }
+    },
   );
 });
 
@@ -86,9 +86,9 @@ if ($(window).width() >= 991) {
         y: 0,
         rotation: "6.5deg",
         duration: 1,
-        ease: "power2.out"
+        ease: "power2.out",
       },
-      0
+      0,
     )
       .to(
         targetElement2,
@@ -98,9 +98,9 @@ if ($(window).width() >= 991) {
           y: 0,
           rotation: "-13.4deg",
           duration: 1,
-          ease: "power2.out"
+          ease: "power2.out",
         },
-        0
+        0,
       )
       .to(
         targetElement3,
@@ -110,9 +110,9 @@ if ($(window).width() >= 991) {
           y: 0,
           rotation: "-6.2deg",
           duration: 1,
-          ease: "power2.out"
+          ease: "power2.out",
         },
-        0
+        0,
       )
       .to(
         targetElement4,
@@ -122,9 +122,9 @@ if ($(window).width() >= 991) {
           y: 0,
           rotation: "10.1deg",
           duration: 1,
-          ease: "power2.out"
+          ease: "power2.out",
         },
-        0
+        0,
       )
       .to(
         targetElement5,
@@ -134,9 +134,9 @@ if ($(window).width() >= 991) {
           y: 0,
           rotation: "10deg",
           duration: 1,
-          ease: "power2.out"
+          ease: "power2.out",
         },
-        0
+        0,
       )
       .to(
         targetElement6,
@@ -146,9 +146,9 @@ if ($(window).width() >= 991) {
           y: 0,
           rotation: "-15.5deg",
           duration: 1,
-          ease: "power2.out"
+          ease: "power2.out",
         },
-        0
+        0,
       )
       .to(
         $(".video-box-perspective"),
@@ -157,9 +157,9 @@ if ($(window).width() >= 991) {
           y: 23,
           rotateX: "18deg",
           duration: 0.6,
-          ease: "power2.out"
+          ease: "power2.out",
         },
-        ">-0.6"
+        ">-0.6",
       );
   });
 
@@ -173,8 +173,8 @@ if ($(window).width() >= 991) {
         // trigger element - viewport
         start: "top bottom-=20%",
         end: "top top+=25%",
-        scrub: 0.8
-      }
+        scrub: 0.8,
+      },
     });
     tl.set(".scroll-hero-cards", { opacity: 1 });
     //Opacity
@@ -183,9 +183,9 @@ if ($(window).width() >= 991) {
       {
         opacity: 0,
         duration: 1,
-        ease: customEaseFast
+        ease: customEaseFast,
       },
-      0
+      0,
     );
 
     //Card1
@@ -194,17 +194,17 @@ if ($(window).width() >= 991) {
       {
         top: "80px",
         duration: 1,
-        ease: customEaseFast
+        ease: customEaseFast,
       },
-      0
+      0,
     ).to(
       targetElement1,
       {
         left: "380px",
         duration: 1,
-        ease: customEaseSlow
+        ease: customEaseSlow,
       },
-      0
+      0,
     );
 
     //Card2
@@ -213,17 +213,17 @@ if ($(window).width() >= 991) {
       {
         top: "120px",
         duration: 1,
-        ease: customEaseFast
+        ease: customEaseFast,
       },
-      0
+      0,
     ).to(
       targetElement2,
       {
         left: "220px",
         duration: 1,
-        ease: customEaseSlow
+        ease: customEaseSlow,
       },
-      0
+      0,
     );
 
     //Card3
@@ -232,17 +232,17 @@ if ($(window).width() >= 991) {
       {
         top: "110px",
         duration: 1,
-        ease: customEaseFast
+        ease: customEaseFast,
       },
-      0
+      0,
     ).to(
       targetElement3,
       {
         left: "80px",
         duration: 1,
-        ease: customEaseSlow
+        ease: customEaseSlow,
       },
-      0
+      0,
     );
 
     //Card4
@@ -251,17 +251,17 @@ if ($(window).width() >= 991) {
       {
         top: "110px",
         duration: 1,
-        ease: customEaseFast
+        ease: customEaseFast,
       },
-      0
+      0,
     ).to(
       targetElement4,
       {
         right: "80px",
         duration: 1,
-        ease: customEaseSlow
+        ease: customEaseSlow,
       },
-      0
+      0,
     );
 
     //Card 5
@@ -270,17 +270,17 @@ if ($(window).width() >= 991) {
       {
         top: "120px",
         duration: 1,
-        ease: customEaseFast
+        ease: customEaseFast,
       },
-      0
+      0,
     ).to(
       targetElement5,
       {
         right: "220px",
         duration: 1,
-        ease: customEaseSlow
+        ease: customEaseSlow,
       },
-      0
+      0,
     );
 
     //Card6
@@ -289,17 +289,17 @@ if ($(window).width() >= 991) {
       {
         top: "80px",
         duration: 1,
-        ease: customEaseFast
+        ease: customEaseFast,
       },
-      0
+      0,
     ).to(
       targetElement6,
       {
         right: "380px",
         duration: 1,
-        ease: customEaseSlow
+        ease: customEaseSlow,
       },
-      0
+      0,
     );
   });
 
@@ -315,8 +315,8 @@ if ($(window).width() >= 991) {
         // trigger element - viewport
         start: "top bottom-=20%",
         end: "top top+=40%",
-        scrub: 0.6
-      }
+        scrub: 0.6,
+      },
     });
     tl.to(targetElement, {
       rotateX: "0deg", //
@@ -324,7 +324,7 @@ if ($(window).width() >= 991) {
       scale: 1, //
       filter: "contrast(1)", //
       duration: 1,
-      ease: customEaseFast
+      ease: customEaseFast,
     });
   });
 } // End of - Only for bigger screen
@@ -334,8 +334,10 @@ if ($(window).width() >= 991) {
 $(".nav-link-button").each(function (index) {
   let triggerElement = $($(this).attr("href"));
   let endTriggerElement;
-  if ($(this).next().length === 0) {
+  if (triggerElement.length === 0) {
     endTriggerElement = $("#faq-section");
+  } else if ($(this).next().length === 0) {
+    endTriggerElement = $("#footer-section");
   } else {
     endTriggerElement = $($(this).next().attr("href"));
   }
@@ -345,8 +347,8 @@ $(".nav-link-button").each(function (index) {
       endTrigger: endTriggerElement,
       start: "top top+=107",
       end: "top top+=107",
-      scrub: 0
-    }
+      scrub: 0,
+    },
   });
 
   tl.fromTo(
@@ -354,18 +356,18 @@ $(".nav-link-button").each(function (index) {
     { opacity: 0.4 },
     {
       opacity: 1,
-      duration: 0.025
+      duration: 0.025,
     },
-    0
+    0,
   );
   tl.to(
     $(this),
     {
       opacity: 0.4,
       clearProps: "opacity",
-      duration: 0.025
+      duration: 0.025,
     },
-    1
+    1,
   );
 });
 
@@ -393,8 +395,8 @@ $(".dark-nav-trigger").each(function (index) {
             $(this).attr("stroke", "rgb(51,51,51)");
           });
         }
-      }
-    }
+      },
+    },
   });
 
   tl.to(
@@ -403,34 +405,34 @@ $(".dark-nav-trigger").each(function (index) {
       backgroundColor: "rgba(0, 0, 0, .5)",
       borderColor: "rgba(255, 255, 255, .03)",
       "--navGradientOpacity": 0.3,
-      duration: 0.025
+      duration: 0.025,
     },
-    0
+    0,
   )
     .to(
       targetElementNavLogoLight,
       {
         opacity: 0,
-        duration: 0.025
+        duration: 0.025,
       },
-      0
+      0,
     )
     .to(
       targetElementNavLogoDark,
       {
         opacity: 1,
-        duration: 0.025
+        duration: 0.025,
       },
-      0
+      0,
     )
     .to(
       targetElementNavLinks,
       {
         color: "#FAF5E4",
         //"font-weight": 400,
-        duration: 0.025
+        duration: 0.025,
       },
-      0
+      0,
     );
 
   tl.to(
@@ -438,34 +440,34 @@ $(".dark-nav-trigger").each(function (index) {
     {
       backgroundColor: "rgba(255, 255, 255, 0.8)",
       borderColor: "rgba(0, 0, 0, 0.03)",
-      duration: 0.025
+      duration: 0.025,
     },
-    1
+    1,
   )
     .to(
       targetElementNavLogoLight,
       {
         opacity: 1,
-        duration: 0.025
+        duration: 0.025,
       },
-      1
+      1,
     )
     .to(
       targetElementNavLogoDark,
       {
         opacity: 0,
-        duration: 0.025
+        duration: 0.025,
       },
-      1
+      1,
     )
     .to(
       targetElementNavLinks,
       {
         color: "#333333",
         //"font-weight": 500,
-        duration: 0.025
+        duration: 0.025,
       },
-      1
+      1,
     );
 });
 
@@ -581,7 +583,7 @@ $(".has-gradient-text").each(function () {
           .parent()
           .find(".gradient-underline-div");
         lineWrapper.css("letter-spacing", "-2.1px");
-      }
+      },
     );
   });
 
@@ -598,7 +600,7 @@ $(".has-gradient-text").each(function () {
         // Calculate the intersection point relative to L2 start.
         gradientColors.push(getrgb(points[index]));
         intersectionPoints.push(
-          String((points[index] - gradientPointA) * 100) + "%"
+          String((points[index] - gradientPointA) * 100) + "%",
         );
       }
     });
@@ -644,7 +646,7 @@ $(".has-gradient-text").each(function () {
     let rgb = [
       Math.round(color1[0] * w1 + color2[0] * w2),
       Math.round(color1[1] * w1 + color2[1] * w2),
-      Math.round(color1[2] * w1 + color2[2] * w2)
+      Math.round(color1[2] * w1 + color2[2] * w2),
     ];
     return rgb;
   }
@@ -659,8 +661,8 @@ if ($(window).width() >= 991) {
         // trigger element - viewport
         start: "top center+=35%",
         end: "top center+=30%",
-        scrub: 0.8
-      }
+        scrub: 0.8,
+      },
     });
     tl.from(targetElement, {
       rotateX: "20deg",
@@ -668,7 +670,7 @@ if ($(window).width() >= 991) {
       scale: 0.98,
       opacity: 0,
       duration: 1,
-      ease: customEaseFast
+      ease: customEaseFast,
     });
   });
 }
@@ -703,7 +705,7 @@ function addShadowToFeatures() {
         // Calculate the intersection point relative to L2 start.
         gradientColors.push(getrgb(points[index]));
         intersectionPoints.push(
-          String((points[index] - gradientPointA) * 100) + "%"
+          String((points[index] - gradientPointA) * 100) + "%",
         );
       }
     });
@@ -747,7 +749,7 @@ function addShadowToFeatures() {
     let rgb = [
       Math.round(color1[0] * w1 + color2[0] * w2),
       Math.round(color1[1] * w1 + color2[1] * w2),
-      Math.round(color1[2] * w1 + color2[2] * w2)
+      Math.round(color1[2] * w1 + color2[2] * w2),
     ];
     return rgb;
   }
@@ -789,7 +791,7 @@ if ($(window).width() >= 991) {
             });
             bgWrapper.css("opacity", "0");
             blurBg.css("opacity", "0");
-          }
+          },
         );
       }
     });
@@ -806,7 +808,7 @@ if ($(window).width() >= 991) {
           $(".offerings-list").css("pointer-events", "inherit");
         }, 100);
       }
-    }
+    },
   });
 }
 
@@ -814,13 +816,13 @@ if ($(window).width() >= 991) {
 seatAvailability();
 function seatAvailability() {
   let visibilityCheckElement = $("#seats-left-number").hasClass(
-    "w-condition-invisible"
+    "w-condition-invisible",
   );
   let hideText1 = $(
-    "#pricing-section > div.collection-list-wrapper.w-dyn-list > div > div:nth-child(1)"
+    "#pricing-section > div.collection-list-wrapper.w-dyn-list > div > div:nth-child(1)",
   );
   let hideText2 = $(
-    "#pricing-section > div.collection-list-wrapper.w-dyn-list > div > div:nth-child(2)"
+    "#pricing-section > div.collection-list-wrapper.w-dyn-list > div > div:nth-child(2)",
   );
 
   let checkoutBtnWeekly = $("#checkoutBtnWeekly");
