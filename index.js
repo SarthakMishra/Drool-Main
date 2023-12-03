@@ -335,7 +335,7 @@ $(".nav-link-button").each(function (index) {
   let triggerElement = $($(this).attr("href"));
   let endTriggerElement;
   if ($(this).next().length === 0) {
-    endTriggerElement = $("#footer-section");
+    endTriggerElement = $("#faq-section");
   } else {
     endTriggerElement = $($(this).next().attr("href"));
   }

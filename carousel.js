@@ -2,166 +2,168 @@ if ($(window).width() > 991) {
   let glider;
   let testimonialWrap = $(".testimonial-slider-section");
 
-  testimonialWrap
-    .find(".glide__track")
-    .get(0)
-    .style.setProperty("opacity", "0");
-
-  testimonialWrap.each(function () {
-    glider = new Glide($(this).get(0), {
-      type: "carousel",
-      startAt: 0,
-      perView: 2,
-      focusAt: 1,
-      gap: 0,
-      autoplay: 5000,
-      hoverpause: false,
-      bound: true,
-      dragThreshold: 1,
-      peek: {
-        before: 400,
-        after: 330
-      },
-      animationDuration: 1000,
-      animationTimingFunc: "cubic-bezier(0.65, 0, 0.35, 1)"
-    });
-    glider.mount();
-    SetClassForActive(
-      testimonialWrap
-        .find(".glide__slide--active")
-        .eq(0)
-        .find(".testimonial-card")
-        .eq(0)
-    );
+  if ($(".testimonial-slider-section").length > 0) {
     testimonialWrap
       .find(".glide__track")
       .get(0)
-      .style.setProperty("opacity", "1");
-  });
+      .style.setProperty("opacity", "0");
 
-  function SetClassForActive(activeSlide) {
-    activeSlide.addClass("active-testimonial-card");
-    testimonialWrap.find(".glide__slide--active").addClass("remove-blur");
-    testimonialWrap
-      .find(".glide__slide--active")
-      .get(0)
-      .style.setProperty("pointer-events", "inherit");
-    setCardCSS(activeSlide, "1px", "10px", "15px", "30px", "0.2");
-  }
-
-  glider.on(["build.before", "run.after"], function () {
-    let activeSlide = testimonialWrap
-      .find(".glide__slide--active")
-      .eq(0)
-      .find(".testimonial-card")
-      .eq(0);
-    let allSlide = $(".testimonial-card");
-
-    testimonialWrap.find(".glide__slide").each(function () {
-      $(this).removeClass("remove-blur");
-      $(this).get(0).style.setProperty("pointer-events", "none");
-    });
-    allSlide.each(function () {
-      $(this).removeClass("active-testimonial-card");
-      setCardCSS($(this), "0px", "0px", "2px", "0px", "0");
-    });
-
-    SetClassForActive(activeSlide);
-  });
-
-  glider.on(["move"], function () {
-    let allSlide = $(".testimonial-card");
-
-    testimonialWrap.find(".glide__slide").each(function () {
-      $(this).removeClass("remove-blur");
-      $(this).get(0).style.setProperty("pointer-events", "none");
-    });
-    allSlide.each(function () {
-      $(this).removeClass("active-testimonial-card");
-      setCardCSS($(this), "0px", "0px", "2px", "0px", "0");
-    });
-  });
-
-  function setCardCSS(
-    element,
-    gradientBorder,
-    gradientShadowInset,
-    gradientShadowTransformY,
-    gradientShadowBlur,
-    gradientShadowOpacity
-  ) {
-    element.get(0).style.setProperty("--gradientBorder", gradientBorder);
-    element
-      .get(0)
-      .style.setProperty("--gradientShadowInset", gradientShadowInset);
-    element
-      .get(0)
-      .style.setProperty(
-        "--gradientShadowTransformY",
-        gradientShadowTransformY
+    testimonialWrap.each(function () {
+      glider = new Glide($(this).get(0), {
+        type: "carousel",
+        startAt: 0,
+        perView: 2,
+        focusAt: 1,
+        gap: 0,
+        autoplay: 5000,
+        hoverpause: false,
+        bound: true,
+        dragThreshold: 1,
+        peek: {
+          before: 400,
+          after: 330,
+        },
+        animationDuration: 1000,
+        animationTimingFunc: "cubic-bezier(0.65, 0, 0.35, 1)",
+      });
+      glider.mount();
+      SetClassForActive(
+        testimonialWrap
+          .find(".glide__slide--active")
+          .eq(0)
+          .find(".testimonial-card")
+          .eq(0),
       );
-    element
-      .get(0)
-      .style.setProperty("--gradientShadowBlur", gradientShadowBlur);
-    element
-      .get(0)
-      .style.setProperty("--gradientShadowOpacity", gradientShadowOpacity);
-  }
-
-  let topLayerMarginLeft;
-
-  function bulletPositionSetter(leftMargin, before, after) {
-    let bullet = $(".main-bullets");
-    let bulletParent = $(".div-block-16");
-    let widthLi = ($("html").width() - (before + after)) / 2;
-    let bulletWrapperLeft =
-      before + widthLi + widthLi / 2 - bullet.eq(0).width() / 2 - leftMargin;
-    let bulletWrapperTop = bulletParent.height() - 20;
-    bullet.get(0).style.setProperty("top", bulletWrapperTop + "px");
-    bullet.get(0).style.setProperty("left", bulletWrapperLeft + "px");
-  }
-
-  $(window)
-    //For Media Queries
-    .on("resize", function () {
-      let maxWidthVar;
-      if ($(document).width() <= 1600) {
-        maxWidthVar = 1150;
-      } else {
-        maxWidthVar = 1200;
-      }
-
-      if ($(document).width() > maxWidthVar) {
-        topLayerMarginLeft = ($("html").width() - maxWidthVar) / 2;
-      } else {
-        topLayerMarginLeft = 0;
-      }
-      $(".testimonial-top-wrapper")
+      testimonialWrap
+        .find(".glide__track")
         .get(0)
-        .style.setProperty("margin-left", topLayerMarginLeft + "px");
-      bulletPositionSetter(
-        topLayerMarginLeft,
-        topLayerMarginLeft * 1.5,
-        topLayerMarginLeft
-      );
+        .style.setProperty("opacity", "1");
+    });
 
+    function SetClassForActive(activeSlide) {
+      activeSlide.addClass("active-testimonial-card");
+      testimonialWrap.find(".glide__slide--active").addClass("remove-blur");
+      testimonialWrap
+        .find(".glide__slide--active")
+        .get(0)
+        .style.setProperty("pointer-events", "inherit");
+      setCardCSS(activeSlide, "1px", "10px", "15px", "30px", "0.2");
+    }
+
+    glider.on(["build.before", "run.after"], function () {
+      let activeSlide = testimonialWrap
+        .find(".glide__slide--active")
+        .eq(0)
+        .find(".testimonial-card")
+        .eq(0);
+      let allSlide = $(".testimonial-card");
+
+      testimonialWrap.find(".glide__slide").each(function () {
+        $(this).removeClass("remove-blur");
+        $(this).get(0).style.setProperty("pointer-events", "none");
+      });
+      allSlide.each(function () {
+        $(this).removeClass("active-testimonial-card");
+        setCardCSS($(this), "0px", "0px", "2px", "0px", "0");
+      });
+
+      SetClassForActive(activeSlide);
+    });
+
+    glider.on(["move"], function () {
+      let allSlide = $(".testimonial-card");
+
+      testimonialWrap.find(".glide__slide").each(function () {
+        $(this).removeClass("remove-blur");
+        $(this).get(0).style.setProperty("pointer-events", "none");
+      });
+      allSlide.each(function () {
+        $(this).removeClass("active-testimonial-card");
+        setCardCSS($(this), "0px", "0px", "2px", "0px", "0");
+      });
+    });
+
+    function setCardCSS(
+      element,
+      gradientBorder,
+      gradientShadowInset,
+      gradientShadowTransformY,
+      gradientShadowBlur,
+      gradientShadowOpacity,
+    ) {
+      element.get(0).style.setProperty("--gradientBorder", gradientBorder);
+      element
+        .get(0)
+        .style.setProperty("--gradientShadowInset", gradientShadowInset);
+      element
+        .get(0)
+        .style.setProperty(
+          "--gradientShadowTransformY",
+          gradientShadowTransformY,
+        );
+      element
+        .get(0)
+        .style.setProperty("--gradientShadowBlur", gradientShadowBlur);
+      element
+        .get(0)
+        .style.setProperty("--gradientShadowOpacity", gradientShadowOpacity);
+    }
+
+    let topLayerMarginLeft;
+
+    function bulletPositionSetter(leftMargin, before, after) {
+      let bullet = $(".main-bullets");
+      let bulletParent = $(".div-block-16");
+      let widthLi = ($("html").width() - (before + after)) / 2;
+      let bulletWrapperLeft =
+        before + widthLi + widthLi / 2 - bullet.eq(0).width() / 2 - leftMargin;
+      let bulletWrapperTop = bulletParent.height() - 20;
+      bullet.get(0).style.setProperty("top", bulletWrapperTop + "px");
+      bullet.get(0).style.setProperty("left", bulletWrapperLeft + "px");
+    }
+
+    $(window)
+      //For Media Queries
+      .on("resize", function () {
+        let maxWidthVar;
+        if ($(document).width() <= 1600) {
+          maxWidthVar = 1150;
+        } else {
+          maxWidthVar = 1200;
+        }
+
+        if ($(document).width() > maxWidthVar) {
+          topLayerMarginLeft = ($("html").width() - maxWidthVar) / 2;
+        } else {
+          topLayerMarginLeft = 0;
+        }
+        $(".testimonial-top-wrapper")
+          .get(0)
+          .style.setProperty("margin-left", topLayerMarginLeft + "px");
+        bulletPositionSetter(
+          topLayerMarginLeft,
+          topLayerMarginLeft * 1.5,
+          topLayerMarginLeft,
+        );
+
+        glider.update({
+          peek: {
+            before: topLayerMarginLeft * 1.5,
+            after: topLayerMarginLeft,
+          },
+        });
+      })
+      .resize();
+
+    glider.on("resize", function () {
       glider.update({
         peek: {
           before: topLayerMarginLeft * 1.5,
-          after: topLayerMarginLeft
-        }
+          after: topLayerMarginLeft,
+        },
       });
-    })
-    .resize();
-
-  glider.on("resize", function () {
-    glider.update({
-      peek: {
-        before: topLayerMarginLeft * 1.5,
-        after: topLayerMarginLeft
-      }
     });
-  });
+  }
 
   /* logo Ticker */
 
@@ -179,97 +181,99 @@ if ($(window).width() > 991) {
       bound: true,
       dragThreshold: 10,
       animationDuration: 3000,
-      animationTimingFunc: "linear"
+      animationTimingFunc: "linear",
     });
     logoTicker.mount();
   });
 
   /*Portfolio Showcase*/
 
-  let showcaseTicker1;
-  let showcaseTickerWrap1 = $(".showcase-ticker-wrapper-1 > .glide");
+  if ($(".showcase-ticker-wrapper-1 > .glide").length > 0) {
+    let showcaseTicker1;
+    let showcaseTickerWrap1 = $(".showcase-ticker-wrapper-1 > .glide");
 
-  showcaseTickerWrap1.each(function () {
-    showcaseTicker1 = new Glide($(this).get(0), {
-      type: "carousel",
-      startAt: 0,
-      perView: 2,
-      focusAt: "center",
-      gap: 30,
-      autoplay: -1,
-      hoverpause: false,
-      bound: true,
-      dragThreshold: 1,
-      animationDuration: 10000,
-      animationTimingFunc: "linear"
-    });
-    showcaseTicker1.mount();
-  });
-
-  let showcaseTicker2;
-  let showcaseTickerWrap2 = $(".showcase-ticker-wrapper-2 > .glide");
-
-  showcaseTickerWrap2.each(function () {
-    showcaseTicker2 = new Glide($(this).get(0), {
-      type: "carousel",
-      startAt: 0,
-      perView: 2,
-      focusAt: "center",
-      gap: 30,
-      autoplay: -1,
-      hoverpause: false,
-      bound: true,
-      dragThreshold: 1,
-      animationDuration: 10000,
-      animationTimingFunc: "linear"
-    });
-    showcaseTicker2.mount();
-  });
-
-  updatePerViewForShowcase(showcaseTicker1);
-  updatePerViewForShowcase(showcaseTicker2);
-
-  function updatePerViewForShowcase(glideVar) {
-    if ($("html").width() > 1600) {
-      glideVar.update({
-        perView: 2.5
+    showcaseTickerWrap1.each(function () {
+      showcaseTicker1 = new Glide($(this).get(0), {
+        type: "carousel",
+        startAt: 0,
+        perView: 2,
+        focusAt: "center",
+        gap: 30,
+        autoplay: -1,
+        hoverpause: false,
+        bound: true,
+        dragThreshold: 1,
+        animationDuration: 10000,
+        animationTimingFunc: "linear",
       });
-    } else {
-      glideVar.update({
-        perView: 2
+      showcaseTicker1.mount();
+    });
+
+    let showcaseTicker2;
+    let showcaseTickerWrap2 = $(".showcase-ticker-wrapper-2 > .glide");
+
+    showcaseTickerWrap2.each(function () {
+      showcaseTicker2 = new Glide($(this).get(0), {
+        type: "carousel",
+        startAt: 0,
+        perView: 2,
+        focusAt: "center",
+        gap: 30,
+        autoplay: -1,
+        hoverpause: false,
+        bound: true,
+        dragThreshold: 1,
+        animationDuration: 10000,
+        animationTimingFunc: "linear",
       });
+      showcaseTicker2.mount();
+    });
+
+    updatePerViewForShowcase(showcaseTicker1);
+    updatePerViewForShowcase(showcaseTicker2);
+
+    function updatePerViewForShowcase(glideVar) {
+      if ($("html").width() > 1600) {
+        glideVar.update({
+          perView: 2.5,
+        });
+      } else {
+        glideVar.update({
+          perView: 2,
+        });
+      }
     }
-  }
 
-  $(".showcase-scroll-control").each(function (index) {
-    let triggerElement = $(this);
-    let targetElement = $(".div-block-29");
+    $(".showcase-scroll-control").each(function (index) {
+      let triggerElement = $(this);
+      let targetElement = $(".div-block-29");
 
-    let moveWidth = $("html").width() - targetElement.eq(0).width();
+      let moveWidth = $("html").width() - targetElement.eq(0).width();
 
-    let tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: triggerElement,
-        // trigger element - viewport
-        start: "top bottom-=10%",
-        end: "bottom top+=10%",
-        scrub: 0.8
-      }
+      let tl = gsap.timeline({
+        scrollTrigger: {
+          trigger: triggerElement,
+          // trigger element - viewport
+          start: "top bottom-=10%",
+          end: "bottom top+=10%",
+          scrub: 0.8,
+        },
+      });
+      tl.fromTo(
+        targetElement,
+        {
+          x: moveWidth * -1 + "px",
+        },
+        {
+          x: moveWidth + "px",
+          duration: 1,
+          ease: "circ.out",
+        },
+      );
     });
-    tl.fromTo(
-      targetElement,
-      {
-        x: moveWidth * -1 + "px"
-      },
-      {
-        x: moveWidth + "px",
-        duration: 1,
-        ease: "circ.out"
-      }
-    );
-  });
 
-  let showcaseShadowTimer = false;
+    let showcaseShadowTimer = false;
+  }
 
   /*  ScrollTrigger.create({
     trigger: $(".showcase-scroll-control"),
@@ -379,32 +383,34 @@ if ($(window).width() > 991) {
   let glider;
   let testimonialWrap = $(".div-block-12-mobile");
 
-  testimonialWrap
-    .find(".glide__track")
-    .get(0)
-    .style.setProperty("opacity", "0");
-
-  testimonialWrap.each(function () {
-    glider = new Glide($(this).get(0), {
-      type: "carousel",
-      startAt: 0,
-      perView: 1,
-      focusAt: 1,
-      gap: 0,
-      autoplay: 4000,
-      hoverpause: false,
-      bound: true,
-      dragThreshold: 1,
-      animationDuration: 400,
-      animationTimingFunc: "cubic-bezier(0.65, 0, 0.35, 1)"
-    });
-    glider.mount();
-
+  if ($(".div-block-12-mobile").length > 0) {
     testimonialWrap
       .find(".glide__track")
       .get(0)
-      .style.setProperty("opacity", "1");
-  });
+      .style.setProperty("opacity", "0");
+
+    testimonialWrap.each(function () {
+      glider = new Glide($(this).get(0), {
+        type: "carousel",
+        startAt: 0,
+        perView: 1,
+        focusAt: 1,
+        gap: 0,
+        autoplay: 4000,
+        hoverpause: false,
+        bound: true,
+        dragThreshold: 1,
+        animationDuration: 400,
+        animationTimingFunc: "cubic-bezier(0.65, 0, 0.35, 1)",
+      });
+      glider.mount();
+
+      testimonialWrap
+        .find(".glide__track")
+        .get(0)
+        .style.setProperty("opacity", "1");
+    });
+  }
 
   /* logo Ticker */
 
@@ -422,7 +428,7 @@ if ($(window).width() > 991) {
       bound: true,
       dragThreshold: 10,
       animationDuration: 3000,
-      animationTimingFunc: "linear"
+      animationTimingFunc: "linear",
     });
     logoTicker.mount();
   });
@@ -432,40 +438,42 @@ if ($(window).width() > 991) {
   let showcaseTicker1;
   let showcaseTickerWrap1 = $(".showcase-ticker-wrapper-1 > .glide");
 
-  showcaseTickerWrap1.each(function () {
-    showcaseTicker1 = new Glide($(this).get(0), {
-      type: "carousel",
-      startAt: 0,
-      perView: 0.6,
-      focusAt: "center",
-      gap: 30,
-      autoplay: -1,
-      hoverpause: false,
-      bound: true,
-      dragThreshold: 1,
-      animationDuration: 10000,
-      animationTimingFunc: "linear"
+  if ($(".div-block-12-mobile").length > 0) {
+    showcaseTickerWrap1.each(function () {
+      showcaseTicker1 = new Glide($(this).get(0), {
+        type: "carousel",
+        startAt: 0,
+        perView: 0.6,
+        focusAt: "center",
+        gap: 30,
+        autoplay: -1,
+        hoverpause: false,
+        bound: true,
+        dragThreshold: 1,
+        animationDuration: 10000,
+        animationTimingFunc: "linear",
+      });
+      showcaseTicker1.mount();
     });
-    showcaseTicker1.mount();
-  });
 
-  let showcaseTicker2;
-  let showcaseTickerWrap2 = $(".showcase-ticker-wrapper-2 > .glide");
+    let showcaseTicker2;
+    let showcaseTickerWrap2 = $(".showcase-ticker-wrapper-2 > .glide");
 
-  showcaseTickerWrap2.each(function () {
-    showcaseTicker2 = new Glide($(this).get(0), {
-      type: "carousel",
-      startAt: 0,
-      perView: 0.6,
-      focusAt: "center",
-      gap: 30,
-      autoplay: -1,
-      hoverpause: false,
-      bound: true,
-      dragThreshold: 1,
-      animationDuration: 10000,
-      animationTimingFunc: "linear"
+    showcaseTickerWrap2.each(function () {
+      showcaseTicker2 = new Glide($(this).get(0), {
+        type: "carousel",
+        startAt: 0,
+        perView: 0.6,
+        focusAt: "center",
+        gap: 30,
+        autoplay: -1,
+        hoverpause: false,
+        bound: true,
+        dragThreshold: 1,
+        animationDuration: 10000,
+        animationTimingFunc: "linear",
+      });
+      showcaseTicker2.mount();
     });
-    showcaseTicker2.mount();
-  });
+  }
 }
