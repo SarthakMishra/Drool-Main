@@ -336,16 +336,11 @@ $(".nav-link-button").each(function (index) {
   let href = $(this).attr("href").replace(/^\//, "");
   if (href.indexOf("#") === 0) {
     triggerElement = $($(this).attr("href").replace(/^\//, ""));
-  } else {
-    return 0;
   }
 
   if (triggerElement.length === 0) {
     endTriggerElement = $("#faq");
-  } else if (
-    $(this).next().length === 0 ||
-    $(this).next().attr("href").replace(/^\//, "").indexOf("#") !== 0
-  ) {
+  } else if ($(this).next().length === 0) {
     endTriggerElement = $("#footer");
   } else {
     endTriggerElement = $($(this).next().attr("href").replace(/^\//, ""));
