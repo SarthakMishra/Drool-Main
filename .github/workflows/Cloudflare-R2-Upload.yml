@@ -8,6 +8,12 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v2
 
+      - name: Prepare JS and CSS Files
+        run: |
+          mkdir temp-files
+          cp *.js temp-files/
+          cp *.css temp-files/
+
       - name: Cloudflare R2 Upload
         uses: okkema/github-action-r2@v0.1.1
         with:
@@ -15,5 +21,5 @@ jobs:
           r2_access_key: ${{ secrets.R2_ACCESS_KEY }}
           r2_secret_key: ${{ secrets.R2_SECRET_KEY }}
           r2_bucket: drool-assets
-          source_dir: /
-          destination_dir: /code
+          source_dir: temp-files/
+          destination_dir: /
