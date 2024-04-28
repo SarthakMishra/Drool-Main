@@ -12,15 +12,14 @@ if ($(window).width() >= 991) {
       "current-time", // The current time of playback
       "mute", // Toggle mute
       "volume", // Volume control
-      "fullscreen" // Toggle fullscreen
+      "fullscreen", // Toggle fullscreen
     ],
     hideControls: false,
     previewThumbnails: {
       enabled: true,
-      src:
-        "https://res.cloudinary.com/sarthakmishra-com/raw/upload/v1689786562/Drool-Demo-Reel-3.webm_r8sjic.vtt"
+      src: "https://assests.trydrool.com/Drool-Demo-Reel-3.webm.vtt",
     },
-    keyboard: { focused: true, global: true }
+    keyboard: { focused: true, global: true },
   });
 
   (function ($) {
@@ -55,7 +54,7 @@ if ($(window).width() >= 991) {
     $(".div-block-6").eq(0).removeClass("videoDarkOverlay");
     heroVideoWrap.style.setProperty(
       "--shadowOnHover",
-      "inset 0px 3px 15px 0px rgba(0, 0, 0, 0.3)"
+      "inset 0px 3px 15px 0px rgba(0, 0, 0, 0.3)",
     );
   });
 
@@ -86,7 +85,7 @@ if ($(window).width() >= 991) {
     $(".div-block-6").eq(0).removeClass("videoDarkOverlay");
     heroVideoWrap.style.setProperty(
       "--shadowOnHover",
-      "inset 0px 3px 15px 0px rgba(0, 0, 0, 0.3)"
+      "inset 0px 3px 15px 0px rgba(0, 0, 0, 0.3)",
     );
   });
 
@@ -98,7 +97,7 @@ if ($(window).width() >= 991) {
       $(".div-block-6").eq(0).addClass("videoDarkOverlay");
       heroVideoWrap.style.setProperty(
         "--shadowOnHover",
-        "inset 0 5px 60px 0px rgba(0, 0, 0, 0.6)"
+        "inset 0 5px 60px 0px rgba(0, 0, 0, 0.6)",
       );
       plyrVideoWrapper.css("cursor", "inherit");
     }
@@ -117,7 +116,7 @@ if ($(window).width() >= 991) {
         $(".div-block-6").eq(0).addClass("videoDarkOverlay");
         heroVideoWrap.style.setProperty(
           "--shadowOnHover",
-          "inset 0 5px 60px 0px rgba(0, 0, 0, 0.6)"
+          "inset 0 5px 60px 0px rgba(0, 0, 0, 0.6)",
         );
         plyrVideoWrapper.css("cursor", "inherit");
       }
@@ -217,7 +216,7 @@ if ($(window).width() >= 991) {
       hoverControlsTimer = setTimeout(() => {
         player.toggleControls(false);
       }, 200);
-    }
+    },
   );
 
   //Video Slider Color
@@ -230,7 +229,7 @@ if ($(window).width() >= 991) {
     let rgb = [
       Math.round(color1[0] * w1 + color2[0] * w2),
       Math.round(color1[1] * w1 + color2[1] * w2),
-      Math.round(color1[2] * w1 + color2[2] * w2)
+      Math.round(color1[2] * w1 + color2[2] * w2),
     ];
     return rgb;
   }
@@ -240,7 +239,7 @@ if ($(window).width() >= 991) {
     function setrgb(input) {
       $("#hero-video").css("--plyr-color-main", "rgb(" + input.join() + ")");
       $(
-        "#hero-video > div.div-block-9.hero-video-button > div > svg > g > g:nth-child(3) > g > path"
+        "#hero-video > div.div-block-9.hero-video-button > div > svg > g > g:nth-child(3) > g > path",
       ).css("fill", "rgb(" + input.join() + ")");
     }
     if (playerProgress <= 0.33) {
@@ -266,15 +265,14 @@ const playerMobile = new Plyr("#plyrCustomVideoMobile", {
     "current-time", // The current time of playback
     "mute", // Toggle mute
     "volume", // Volume control
-    "fullscreen" // Toggle fullscreen
+    "fullscreen", // Toggle fullscreen
   ],
   hideControls: false,
   previewThumbnails: {
     enabled: true,
-    src:
-      "https://res.cloudinary.com/sarthakmishra-com/raw/upload/v1689786562/Drool-Demo-Reel-3.webm_r8sjic.vtt"
+    src: "https://assests.trydrool.com/Drool-Demo-Reel-3.webm.vtt",
   },
-  keyboard: { focused: true, global: true }
+  keyboard: { focused: true, global: true },
 });
 
 videoLightboxTrigger();
