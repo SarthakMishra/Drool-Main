@@ -336,6 +336,8 @@ $(".nav-link-button").each(function (index) {
   let href = $(this).attr("href").replace(/^\//, "");
   if (href.indexOf("#") === 0) {
     triggerElement = $($(this).attr("href").replace(/^\//, ""));
+  } else {
+    return 0;
   }
 
   if (triggerElement.length === 0) {
