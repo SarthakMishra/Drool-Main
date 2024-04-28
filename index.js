@@ -329,10 +329,13 @@ if ($(window).width() >= 991) {
   });
 } // End of - Only for bigger screen
 
-// All Nav animations edits
+// All Nav animations
 
 $(".nav-link-button").each(function (index) {
   let triggerElement = $($(this).attr("href").replace(/^\//, ""));
+  triggerElement = triggerElement.filter(function () {
+    return $(this).attr("href").startsWith("#");
+  });
   let endTriggerElement;
   if (triggerElement.length === 0) {
     endTriggerElement = $("#faq");
