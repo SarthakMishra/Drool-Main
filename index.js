@@ -334,7 +334,7 @@ if ($(window).width() >= 991) {
 $(".nav-link-button").each(function (index) {
   let triggerElement = $($(this).attr("href").replace(/^\//, ""));
   triggerElement = triggerElement.filter(function () {
-    return $(this).startsWith("#");
+    return $(this).attr("href").replace(/^\//, "").startsWith("#");
   });
   let endTriggerElement;
   if (triggerElement.length === 0) {
