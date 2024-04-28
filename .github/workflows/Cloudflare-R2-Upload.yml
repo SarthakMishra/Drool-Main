@@ -22,4 +22,4 @@ jobs:
           r2_secret_key: ${{ secrets.R2_SECRET_KEY }}
           r2_bucket: drool-assets
           source_dir: temp-files/
-          destination_dir: /
+          destination_dir: code
