@@ -335,9 +335,9 @@ $(".nav-link-button").each(function (index) {
   let triggerElement = $($(this).attr("href"));
   let endTriggerElement;
   if (triggerElement.length === 0) {
-    endTriggerElement = $("#faq-section");
+    endTriggerElement = $("#faq");
   } else if ($(this).next().length === 0) {
-    endTriggerElement = $("#footer-section");
+    endTriggerElement = $("#footer");
   } else {
     endTriggerElement = $($(this).next().attr("href"));
   }
@@ -521,7 +521,7 @@ function mobileNavTrigger() {
   $(".menu-button").each(function () {
     let mainButton = $(this);
 
-    mainButton.on("click.navBtnClick", function () {
+    mainButton.on("click", function () {
       $(".mobile-menu-list").toggleClass("mobile-menu-list-active");
     });
   });
