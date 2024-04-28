@@ -342,7 +342,7 @@ $(".nav-link-button").each(function (index) {
 
   if (triggerElement.length === 0) {
     endTriggerElement = $("#faq");
-  } else if ($(this).next().length === 0) {
+  } else if ($(this).next().length === 1) {
     endTriggerElement = $("#footer");
   } else {
     endTriggerElement = $($(this).next().attr("href").replace(/^\//, ""));
