@@ -332,11 +332,12 @@ if ($(window).width() >= 991) {
 // All Nav animations
 
 $(".nav-link-button").each(function (index) {
-  let triggerElement = $(
-    $(this).filter(function () {
-      return $(this).attr("href").replace(/^\//, "").startsWith("#");
-    }),
-  );
+  let triggerElement = $($(this).attr("href").replace(/^\//, ""));
+
+  triggerElement = triggerElement.filter(function () {
+    var href = $(this).attr("href").replace(/^\//, ""); // Remove leading slash if it exists
+    return href.indexOf("#") === 0; // Check if it starts with '#'
+  });
 
   let endTriggerElement;
   if (triggerElement.length === 0) {
