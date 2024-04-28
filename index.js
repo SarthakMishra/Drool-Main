@@ -332,7 +332,7 @@ if ($(window).width() >= 991) {
 // All Nav animations
 
 $(".nav-link-button").each(function (index) {
-  let triggerElement = $($(this).attr("href"));
+  let triggerElement = $($(this).attr("href").replace(/^\//, ""));
   let endTriggerElement;
   if (triggerElement.length === 0) {
     endTriggerElement = $("#faq");
