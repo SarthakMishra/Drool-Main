@@ -329,7 +329,7 @@ if ($(window).width() >= 991) {
   });
 } // End of - Only for bigger screen
 
-// All Nav animations
+// All Nav animations edits
 
 $(".nav-link-button").each(function (index) {
   let triggerElement = $($(this).attr("href").replace(/^\//, ""));
