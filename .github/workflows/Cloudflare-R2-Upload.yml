@@ -11,7 +11,7 @@ jobs:
       - name: Cloudflare R2 Upload
         uses: okkema/github-action-r2@v0.1.1
         with:
-          account_id: ${{CF_ACCOUNT_ID}}
+          account_id: ${{ secrets.CF_ACCOUNT_ID }}
           r2_access_key: ${{ secrets.R2_ACCESS_KEY }}
           r2_secret_key: ${{ secrets.R2_SECRET_KEY }}
           r2_bucket: drool-assets
