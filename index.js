@@ -339,7 +339,7 @@ $(".nav-link-button").each(function (index) {
   } else if ($(this).next().length === 0) {
     endTriggerElement = $("#footer");
   } else {
-    endTriggerElement = $($(this).next().attr("href"));
+    endTriggerElement = $($(this).next().attr("href").replace(/^\//, ""));
   }
   let tl = gsap.timeline({
     scrollTrigger: {
