@@ -1,18 +1,19 @@
-            - name: Cloudflare R2 Upload
-  # You may pin to the exact commit or the version.
-  # uses: okkema/github-action-r2@31906225bbae008216d1460f0331fbe6c7886e61
-  uses: okkema/github-action-r2@v0.1.1
-  with:
-    # Cloudflare account id
-    account_id: 5cd3c2644a901c67bac45b8a62011d85
-    # Cloudflare R2 access key
-    r2_access_key: 48e22fe59e204663823342f2c8331beb
-    # Cloudflare R2 secret key
-    r2_secret_key: eda34b3b9c0bd7a8f1dc48fd5fbe9fc0256e39ddfd32a3a6dfadef3eb20be12e
-    # Cloudflare R2 bucket name
-    r2_bucket: drool-assets
-    # Source directory to upload
-    source_dir: /
-    # Destination directory for upload
-    destination_dir: # optional, default is /
-          
+name: Upload to Cloudflare R2
+on: [push]
+
+jobs:
+  upload_files:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Cloudflare R2 Upload
+        uses: okkema/github-action-r2@v0.1.1
+        with:
+          account_id: ${{CF_ACCOUNT_ID}}
+          r2_access_key: ${{R2_ACCESS_KEY}}
+          r2_secret_key: ${{R2_SECRET_KEY}}
+          r2_bucket: drool-assets
+          source_dir: /
+          destination_dir: /code
