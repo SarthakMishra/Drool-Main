@@ -332,19 +332,21 @@ if ($(window).width() >= 991) {
 // All Nav animations
 
 $(".nav-link-button").each(function (index) {
-  let triggerElement = $($(this).attr("href").replace(/^\//, ""));
+  let triggerElement;
+  let href = $(this).attr("href").replace(/^\//, "");
+  if (href.indexOf("#") === 0){
+    triggerElement = $($(this).attr("href").replace(/^\//, ""));
+  } else {
+    return 0;
+  }
 
-  triggerElement = triggerElement.filter(function () {
-    var href = $(this).attr("href").replace(/^\//, ""); // Remove leading slash if it exists
-    return href.indexOf("#") === 0; // Check if it starts with '#'
-  });
-
-  let endTriggerElement;
   if (triggerElement.length === 0) {
     endTriggerElement = $("#faq");
-  } else if ($(this).next().length === 0) {
+  } else if ($(this).next().length === 0 || $(this).attr("href").indexOf("#") !== 1) {
     endTriggerElement = $("#footer");
-  } else {
+  } else if (){
+
+  }else {
     endTriggerElement = $($(this).next().attr("href").replace(/^\//, ""));
   }
   let tl = gsap.timeline({
