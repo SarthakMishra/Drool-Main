@@ -332,8 +332,10 @@ if ($(window).width() >= 991) {
 // All Nav animations
 
 $(".nav-link-button").each(function (index) {
-  let triggerElement = $(".nav-link-button").filter(function () {
-    var href = $(this).attr("href").replace(/^\//, ""); // Remove the leading slash if present
+  let triggerElement = $($(this).attr("href").replace(/^\//, ""));
+
+  triggerElement = triggerElement.filter(function () {
+    var href = $(this).attr("href").replace(/^\//, ""); // Remove leading slash if it exists
     return href.indexOf("#") === 0; // Check if it starts with '#'
   });
 
