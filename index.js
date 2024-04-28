@@ -329,7 +329,7 @@ if ($(window).width() >= 991) {
   });
 } // End of - Only for bigger screen
 
-// All Nav animations
+// All Nav animations edits
 
 $(".nav-link-button").each(function (index) {
   let triggerElement = $($(this).attr("href").replace(/^\//, ""));
@@ -339,7 +339,7 @@ $(".nav-link-button").each(function (index) {
   } else if ($(this).next().length === 0) {
     endTriggerElement = $("#footer");
   } else {
-    endTriggerElement = $($(this).next().attr("href"));
+    endTriggerElement = $($(this).next().attr("href").replace(/^\//, ""));
   }
   let tl = gsap.timeline({
     scrollTrigger: {
