@@ -494,33 +494,35 @@ $(window)
   })
   .resize();
 
-/* if ($("html").width() > 991) {
+if ($("html").width() > 991) {
+  let lastScrollTop = 0; // variable to store the last scroll position
+  let marginTop = 35;
   ScrollTrigger.create({
-    onUpdate: ({ getVelocity }) => {
-      let scrollD = (getVelocity() * -1) / Math.abs(getVelocity());
+    onUpdate: ({ direction, getVelocity }) => {
+      let currentScrollTop = ScrollTrigger.scroll(); // get current scroll position
+      let navBarScrollTransform = $("#navBarScrollTransform"); // make sure to define this variable if not defined
 
-      if (Math.abs(getVelocity()) >= 50) {
+      // Determine if scrolling down or up
+      if (currentScrollTop > lastScrollTop) {
+        // Scrolling Down
         navBarScrollTransform.css({
-          transition: "all 0.2s cubic-bezier( 0.25, 0.46, 0.45, 0.94 )"
+          transition: "all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+          marginTop: `${marginTop - 15}px`, // Move nav bar up out of view
+          opacity: 0, // Make nav bar transparent
         });
-        navBarScrollTransform.css("margin-top", 35 + 5 * scrollD + "px");
-        navBarScrollTransform.css({
-          transform: "perspective(1500px) rotateX(" + 12 * scrollD + "deg)"
-        });
-        navBarScrollTransform.css("width", navBaseWidth - 10 + "px");
       } else {
+        // Scrolling Up
         navBarScrollTransform.css({
-          transition: "all 0.4s ease-out )"
+          transition: "all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+          marginTop: `${marginTop}px`, // Move nav bar back into its original position
+          opacity: 1, // Make nav bar fully visible
         });
-        navBarScrollTransform.css("margin-top", 35 + "px");
-        navBarScrollTransform.css({
-          transform: "perspective(1500px) rotateX(" + 0 + "deg)"
-        });
-        navBarScrollTransform.css("width", navBaseWidth + "px");
       }
-    }
+
+      lastScrollTop = currentScrollTop; // update last scroll position
+    },
   });
-} */
+}
 
 mobileNavTrigger();
 function mobileNavTrigger() {
