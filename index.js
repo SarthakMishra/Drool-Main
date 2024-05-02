@@ -494,23 +494,22 @@ $(window)
   })
   .resize();
 
+// Hide nav bar on scroll down and show on sroll up
 if ($("html").width() > 991) {
-  let lastScrollTop = 0; // variable to store the last scroll position
+  let navBarScrollTransform = $("#navBarScrollTransform"); // make sure to define this variable if not defined
   let marginTop = 35;
-  ScrollTrigger.create({
-    onUpdate: ({ direction, getVelocity }) => {
-      let currentScrollTop = ScrollTrigger.scroll(); // get current scroll position
-      let navBarScrollTransform = $("#navBarScrollTransform"); // make sure to define this variable if not defined
 
-      // Determine if scrolling down or up
-      if (currentScrollTop > lastScrollTop) {
+  ScrollTrigger.create({
+    onUpdate: (self) => {
+      // self.direction returns 1 for down and -1 for up
+      if (self.direction > 0) {
         // Scrolling Down
         navBarScrollTransform.css({
           transition: "all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
           marginTop: `${marginTop - 15}px`, // Move nav bar up out of view
           opacity: 0, // Make nav bar transparent
         });
-      } else {
+      } else if (self.direction < 0) {
         // Scrolling Up
         navBarScrollTransform.css({
           transition: "all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
@@ -518,8 +517,6 @@ if ($("html").width() > 991) {
           opacity: 1, // Make nav bar fully visible
         });
       }
-
-      lastScrollTop = currentScrollTop; // update last scroll position
     },
   });
 }
