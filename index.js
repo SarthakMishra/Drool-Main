@@ -496,7 +496,6 @@ $(window)
 
 // Hide nav bar on scroll down and show on sroll up
 if ($("html").width() > 991) {
-  let navBarScrollTransform = $("#navBarScrollTransform"); // make sure to define this variable if not defined
   let marginTop = 35;
 
   ScrollTrigger.create({
