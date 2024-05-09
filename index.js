@@ -494,33 +494,31 @@ $(window)
   })
   .resize();
 
-/* if ($("html").width() > 991) {
-  ScrollTrigger.create({
-    onUpdate: ({ getVelocity }) => {
-      let scrollD = (getVelocity() * -1) / Math.abs(getVelocity());
+// Hide nav bar on scroll down and show on sroll up
+if ($("html").width() > 991) {
+  let marginTop = 35;
 
-      if (Math.abs(getVelocity()) >= 50) {
+  ScrollTrigger.create({
+    onUpdate: (self) => {
+      // self.direction returns 1 for down and -1 for up
+      if (self.direction > 0) {
+        // Scrolling Down
         navBarScrollTransform.css({
-          transition: "all 0.2s cubic-bezier( 0.25, 0.46, 0.45, 0.94 )"
+          transition: "all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+          marginTop: `${marginTop - 15}px`, // Move nav bar up out of view
+          opacity: 0, // Make nav bar transparent
         });
-        navBarScrollTransform.css("margin-top", 35 + 5 * scrollD + "px");
+      } else if (self.direction < 0) {
+        // Scrolling Up
         navBarScrollTransform.css({
-          transform: "perspective(1500px) rotateX(" + 12 * scrollD + "deg)"
+          transition: "all 0.2s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
+          marginTop: `${marginTop}px`, // Move nav bar back into its original position
+          opacity: 1, // Make nav bar fully visible
         });
-        navBarScrollTransform.css("width", navBaseWidth - 10 + "px");
-      } else {
-        navBarScrollTransform.css({
-          transition: "all 0.4s ease-out )"
-        });
-        navBarScrollTransform.css("margin-top", 35 + "px");
-        navBarScrollTransform.css({
-          transform: "perspective(1500px) rotateX(" + 0 + "deg)"
-        });
-        navBarScrollTransform.css("width", navBaseWidth + "px");
       }
-    }
+    },
   });
-} */
+}
 
 mobileNavTrigger();
 function mobileNavTrigger() {
