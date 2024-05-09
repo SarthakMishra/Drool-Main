@@ -1,4 +1,4 @@
-name: Upload to Cloudflare R2
+name: Dev Upload to Cloudflare R2
 on:
   push:
     branches:
