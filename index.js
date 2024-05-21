@@ -760,6 +760,7 @@ function addShadowToFeatures() {
 }
 
 //Offerings Section
+/*
 if ($(window).width() >= 991) {
   changeBgOnHover();
   function changeBgOnHover() {
@@ -815,6 +816,7 @@ if ($(window).width() >= 991) {
     },
   });
 }
+*/
 
 //pricing section
 seatAvailability();
