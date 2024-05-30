@@ -427,12 +427,6 @@
     transform: scale(0.9) translateY(-90px);
   }
 
-  /*hero video*/
-  #hero-video {
-    width: 950px;
-    margin-top: -200px;
-  }
-
   .div-block-11,
   .div-block-30,
   .feature-wrapper,
