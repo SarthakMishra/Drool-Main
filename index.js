@@ -149,17 +149,6 @@ if ($(window).width() >= 991) {
           ease: "power2.out",
         },
         0,
-      )
-      .to(
-        $(".video-box-perspective"),
-        {
-          opacity: 1,
-          y: 23,
-          rotateX: "18deg",
-          duration: 0.6,
-          ease: "power2.out",
-        },
-        ">-0.6",
       );
   });
 
@@ -305,7 +294,7 @@ if ($(window).width() >= 991) {
 
   // Animate TO for Video-Box
 
-  $(".video-box-perspective").each(function (index) {
+  /*$(".video-box-perspective").each(function (index) {
     let triggerElement = $(this);
     let targetElement = $(".video-box-perspective");
 
@@ -327,10 +316,10 @@ if ($(window).width() >= 991) {
       ease: customEaseFast,
     });
   });
-} // End of - Only for bigger screen
+}*/ // End of - Only for bigger screen
 
 // All Nav animations
-
+/*
 $(".nav-link-button").each(function (index) {
   let triggerElement;
   let href = $(this).attr("href").replace(/^\//, "");
@@ -376,7 +365,7 @@ $(".nav-link-button").each(function (index) {
     1,
   );
 });
-
+*/
 $(".dark-nav-trigger").each(function (index) {
   let triggerElement = $(this);
   let targetElementNavBg = $(".navigation");
