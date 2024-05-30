@@ -291,81 +291,11 @@ if ($(window).width() >= 991) {
       0,
     );
   });
+}
 
-  // Animate TO for Video-Box
-
-  /*$(".video-box-perspective").each(function (index) {
-    let triggerElement = $(this);
-    let targetElement = $(".video-box-perspective");
-
-    let tl = gsap.timeline({
-      scrollTrigger: {
-        trigger: triggerElement,
-        // trigger element - viewport
-        start: "top bottom-=20%",
-        end: "top top+=40%",
-        scrub: 0.6,
-      },
-    });
-    tl.to(targetElement, {
-      rotateX: "0deg", //
-      y: 0, //
-      scale: 1, //
-      filter: "contrast(1)", //
-      duration: 1,
-      ease: customEaseFast,
-    });
-  });
-}*/ // End of - Only for bigger screen
+// End of - Only for bigger screen
 
 // All Nav animations
-/*
-$(".nav-link-button").each(function (index) {
-  let triggerElement;
-  let href = $(this).attr("href").replace(/^\//, "");
-  if (href.indexOf("#") === 0) {
-    triggerElement = $($(this).attr("href").replace(/^\//, ""));
-  } else {
-    return 0;
-  }
-
-  if (triggerElement.length === 0) {
-    endTriggerElement = $("#faq");
-  } else if ($(this).next().length === 0) {
-    endTriggerElement = $("#footer");
-  } else {
-    endTriggerElement = $($(this).next().attr("href").replace(/^\//, ""));
-  }
-  let tl = gsap.timeline({
-    scrollTrigger: {
-      trigger: triggerElement,
-      endTrigger: endTriggerElement,
-      start: "top top+=107",
-      end: "top top+=107",
-      scrub: 0,
-    },
-  });
-
-  tl.fromTo(
-    $(this),
-    { opacity: 0.4 },
-    {
-      opacity: 1,
-      duration: 0.025,
-    },
-    0,
-  );
-  tl.to(
-    $(this),
-    {
-      opacity: 0.4,
-      clearProps: "opacity",
-      duration: 0.025,
-    },
-    1,
-  );
-});
-*/
 $(".dark-nav-trigger").each(function (index) {
   let triggerElement = $(this);
   let targetElementNavBg = $(".navigation");
@@ -747,65 +677,6 @@ function addShadowToFeatures() {
     return rgb;
   }
 }
-
-//Offerings Section
-/*
-if ($(window).width() >= 991) {
-  changeBgOnHover();
-  function changeBgOnHover() {
-    let cards = $(".offering-card");
-    let bgWrapper = $(".offerings-active-image");
-    let blurBg = $(".blurred-bg-image");
-    bgWrapper.css("opacity", "0");
-
-    cards.each(function () {
-      let bgImageSrc = $(this).attr("backimageonhover");
-      let bgImageValue = "url(" + bgImageSrc + ")";
-      bgWrapper.css("background-size", "cover");
-      bgWrapper.css("background-position", "center");
-      if (!$(this).hasClass("this-offer-card-bottom")) {
-        $(this).hover(
-          function () {
-            cards.each(function () {
-              $(this).css("opacity", "0");
-            });
-
-            $(this).css("opacity", "1");
-            $(this).css("background-color", "rgba(13,12,18, 0.8)");
-            bgWrapper.css("background-image", bgImageValue);
-            bgWrapper.css("opacity", "1");
-            blurBg.css("opacity", "0.5");
-          },
-          function () {
-            cards.each(function () {
-              if (!$(this).hasClass("this-offer-card-bottom")) {
-                $(this).css("background-color", "rgba(255, 255, 255, 0.02)");
-              }
-              $(this).css("opacity", "1");
-            });
-            bgWrapper.css("opacity", "0");
-            blurBg.css("opacity", "0");
-          },
-        );
-      }
-    });
-  }
-
-  let offeringScrollTimer;
-  ScrollTrigger.create({
-    onUpdate: ({ getVelocity }) => {
-      clearTimeout(offeringScrollTimer);
-      if (Math.abs(getVelocity()) >= 50) {
-        $(".offerings-list").css("pointer-events", "none");
-      } else {
-        offeringScrollTimer = setTimeout(function () {
-          $(".offerings-list").css("pointer-events", "inherit");
-        }, 100);
-      }
-    },
-  });
-}
-*/
 
 //pricing section
 seatAvailability();
