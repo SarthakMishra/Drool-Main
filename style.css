@@ -453,19 +453,9 @@
   }
 }
 
-@media only screen and (max-height: 900px) and (min-width: 992px) {
-  .section-2.section-with-bg-img.dark-nav-trigger {
-    margin-top: -600px;
-  }
-}
-
 /*------------For Mobile & tablet Scale 991px and smaller --------------*/
 
 @media only screen and (max-width: 991px) {
-  .section-2.section-with-bg-img.dark-nav-trigger.wf-section {
-    margin-top: 0px;
-  }
-
   .div-block-11,
   .div-block-30,
   .feature-wrapper,
